@@ -1,23 +1,38 @@
 use std::io;
 
+
+
 fn main() {
-    let a = [1,2,3,4,5];
+    // let y = {
+    //     let x = 3;
+    //     x + 1  // 세미 콜론을 사용하면 표현식이 구문이 된다. 이 경우에는 세미 콜론을 사용하지 않아야 바인딩 됨.
+    // };
 
-    println!("Please enter an array index.");
+    // println!("The value of y is: {y}");
 
-    let mut index = String::new();
+    // let x = five();  // let x = 5;와 동일
 
-    io::stdin()
-        .read_line(&mut index)
-        .expect("Failed to read line");
+    let x = plus_one(5);
 
-    let index: usize = index
-        .trim()
-        .parse()
-        .expect("Index entered was not a number");
+    println!("The value of x is {x}");
 
-    let element = a[index];
 
-    println!("The value of the element at index {index} is: {element}");
 }
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+
+
+fn five() -> i32 {
+    5 // 반환하는 값에 대한 표현식이기 때문에
+}
+
+// fn print_labeled_measurement(value: i32, unit_label: char) {
+//     println!("The measurement is: {value}{unit_label}");
+// }
+
+// fn another_function(x: i32) {
+//     println!("Another function.")
+// }
 
