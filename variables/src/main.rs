@@ -1,25 +1,23 @@
+use std::io;
 
 fn main() {
-// # 가변(mut)
-//     let mut x = 5;
-//     println!("The Value of x is: {x}");
-//     x = 6;
-//     println!("The value of x is: {x}")
+    let a = [1,2,3,4,5];
 
-// # 섀도잉(shadowing)
+    println!("Please enter an array index.");
 
-    // let x = 5;
-    //
-    //     let x = x + 1;
-    //
-    //     {
-    //         let x = x * 2;
-    //         println!("The value of x in the inner scope is: {x}");
-    //     }
-    //
-    //     println!("The value of x is: {x}");
+    let mut index = String::new();
 
-    let spaces = "   ";   // let mut은 변수의 타입을 바꿀 수 없음
-    let spaces = spaces.len();
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+
+    let element = a[index];
+
+    println!("The value of the element at index {index} is: {element}");
 }
 
